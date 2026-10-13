@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-13T11:11:15.2619124Z",
+  "runtime": "production: pnpm build + pnpm start",
+  "unitTests": {
+    "passed": 112,
+    "failed": 0,
+    "files": 9
+  },
+  "e2e": {
+    "startTime": "2026-10-13T11:10:07.416Z",
+    "duration": 16715.029,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "checks": {
+    "syntheticRuleBenchmark": {
+      "passed": 6,
+      "samples": 6,
+      "paidRequests": 0
+    },
+    "browserKeyMarkerScan": {
+      "files": 54,
+      "leaks": 0
+    },
+    "build": "passed",
+    "typecheck": "passed",
+    "freshDatabaseMigration": "passed",
+    "lint": "passed, zero warnings",
+    "hcxLive": "not verified: no key provided"
+  },
+  "ocr": {
+    "type": "OCR result",
+    "description": "status=review; textLength=135; Korean=true"
+  },
+  "tests": [
+    {
+      "name": "MV3 extension pairs, analyzes synthetic search, restores controls and shares saved data",
+      "status": "passed"
+    },
+    {
+      "name": "persistent project → classifications → resource → cited summary → roadmap → notes → report → delete",
+      "status": "passed"
+    },
+    {
+      "name": "pairing one-time code, scoped origin token, revoke, second owner isolation",
+      "status": "passed"
+    },
+    {
+      "name": "real PNG upload → local Korean OCR or editable fallback → organized archive → delete image",
+      "status": "passed"
+    },
+    {
+      "name": "home defaults → pasted resource → persisted memo → roadmap completion through UI",
+      "status": "passed"
+    }
+  ]
+}

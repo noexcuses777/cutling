@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-13T10:35:05.963Z",
+  "query": "딥러닝 공부 순서",
+  "httpStatus": 200,
+  "actualNaver": true,
+  "requestInterception": false,
+  "mode": "rules",
+  "badgeCount": 2,
+  "filterOffRestored": true,
+  "originalLinkPreserved": true,
+  "savedResourceCount": 1,
+  "savedTitle": "머신러닝 딥러닝 차이·공부 순서 총정리｜비전공자 AI 로드맵 - 링커리어 커뮤니티",
+  "savedUrl": "https://community.linkareer.com/employment_data/6193353",
+  "verified": [
+    "Unpacked MV3 loaded in headless Chromium",
+    "Real public Naver query detected",
+    "Current SDS result DOM parsed",
+    "Panel and rule badges visible",
+    "Filter OFF removed badges and restored original style",
+    "Original source URL preserved",
+    "One visible result saved and retrieved through shared API"
+  ],
+  "notVerified": [
+    "Live HCX calls",
+    "Live result blur/reveal: the two observed results were recommended; blur/reveal passed synthetic integration only",
+    "All Naver result layouts",
+    "Real-user Chrome profile installation",
+    "Naver blog capture",
+    "Long-duration navigation and repeated scroll stability"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@cutling/search-adapters",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts":{"typecheck":"tsc --noEmit"},
+  "exports": {".": "./src/index.ts"},
+  "dependencies": {"@cutling/shared": "workspace:*"},
+  "devDependencies": {"jsdom": "^26.0.0", "@types/jsdom": "^21.1.7"}
+}

@@ -1,0 +1,12 @@
+{
+  "name": "cutling", "version": "0.1.0", "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "engines": {"node": ">=22.12.0"},
+  "scripts": {
+    "dev": "pnpm dev:web", "dev:web": "pnpm --filter @cutling/web dev", "dev:extension": "pnpm --filter @cutling/extension dev",
+    "build": "pnpm db:generate && pnpm --filter @cutling/web build && pnpm build:extension", "build:extension": "pnpm --filter @cutling/extension build",
+    "start": "pnpm --filter @cutling/web start", "db:generate": "pnpm --filter @cutling/web exec prisma generate", "db:migrate": "pnpm --filter @cutling/web exec node scripts/ensure-db.mjs && pnpm --filter @cutling/web exec prisma migrate deploy", "db:seed": "pnpm --filter @cutling/web exec tsx ../../scripts/seed.ts",
+    "test": "vitest run", "test:e2e": "playwright test", "typecheck": "pnpm -r typecheck", "lint": "eslint .", "benchmark": "tsx scripts/benchmark.ts"
+  },
+  "devDependencies": {"@playwright/test":"^1.56.0","@types/node":"^22.19.0","@types/react":"^19.2.0","@types/react-dom":"^19.2.0","@types/jsdom":"^21.1.7","eslint":"^9.39.0","typescript-eslint":"^8.46.0","jsdom":"^26.1.0","tsx":"^4.20.6","typescript":"^5.9.3","vitest":"^3.2.4","zod":"^3.25.76"}
+}
