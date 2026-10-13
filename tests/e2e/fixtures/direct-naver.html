@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>딥러닝 · 합성 네이버 구조 테스트</title>
+  <style>
+    body { margin: 24px; font: 15px/1.6 system-ui; background: white; color: #222; }
+    main { width: 760px; }
+    .lst_type { list-style: none; padding: 0; margin: 0; }
+    .lst, .fds-web-doc-root { border: 1px solid #ddd; padding: 18px; margin: 12px 0; }
+    .inner, .source-content { min-height: 200px; }
+    .lnk_head, .sds-comps-text-type-headline1 { font-size: 22px; }
+    a { color: #183c7a; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>딥러닝 · 합성 검색 결과</h1>
+    <!-- This mirrors observed public Powerlink structure. The ad signal is on
+         the section, and not a made-up label on each individual result. -->
+    <section class="sc_new sp_power">
+      <h2>딥러닝 관련 광고</h2>
+      <div id="power_link_body" class="nad_area">
+        <ul class="lst_type">
+          <li class="lst type_subtitle" id="powerlink">
+            <div class="inner" style="display:block!important">
+              <div class="title_url_area"><a class="lnk_head" href="https://example.com/gpu-ad">딥러닝 GPU 서버 견적 상담</a></div>
+              <div class="desc_wrap"><div class="desc_area"><a class="link_desc" href="https://example.com/gpu-ad">GPU 서버 특가 판매. 지금 구매 상담 신청하고 할인 혜택을 받으세요.</a></div></div>
+              <p>맞춤형 서버 판매 · 견적 문의 · 할인 행사</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="fds-web-doc-root fds-web-normal-doc-root" id="unrelated">
+      <div class="source-content">
+        <a href="https://blog.naver.com/example/travel"><span class="sds-comps-text-type-headline1">제주도 맛집 여행과 카페 추천</span></a>
+        <div class="sds-comps-text-ellipsis-3"><span class="sds-comps-text-content">주말 제주 여행에서 들른 맛집과 카페를 소개합니다. 바다 전망 숙소와 맛있는 디저트, 렌터카 여행 코스를 정리했어요.</span></div>
+        <p>오름 산책과 한라산 풍경을 즐긴 여행 일기입니다.</p>
+      </div>
+    </div>
+    <div class="fds-web-doc-root fds-web-normal-doc-root" id="learning">
+      <div class="source-content">
+        <a href="https://pytorch.org/tutorials/beginner/basics/intro.html"><span class="sds-comps-text-type-headline1">딥러닝 입문: 신경망과 역전파 실습</span></a>
+        <div class="sds-comps-text-ellipsis-3"><span class="sds-comps-text-content">딥러닝 기초 개념과 인공 신경망, 경사하강법, 역전파를 이해하고 PyTorch 예제 코드로 이미지 분류 모델을 만들어 봅니다.</span></div>
+        <p>파이썬과 선형대수 기초부터 모델 학습까지 이어지는 튜토리얼입니다.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

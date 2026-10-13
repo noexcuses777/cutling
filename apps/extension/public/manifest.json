@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Cutling · 커틀링",
+  "description": "네이버 검색에서 광고와 관련 없는 결과를 접고, 필요한 자료를 저장합니다.",
+  "version": "0.2.0",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://search.naver.com/*", "https://blog.naver.com/*", "https://m.blog.naver.com/*", "http://localhost/*", "http://127.0.0.1/*"],
+  "optional_host_permissions": ["https://*/*"],
+  "background": {"service_worker": "worker.js"},
+  "action": {"default_popup": "popup.html", "default_title": "Cutling"},
+  "options_ui": {"page": "options.html", "open_in_tab": true},
+  "content_scripts": [
+    {"matches": ["https://search.naver.com/*", "https://blog.naver.com/*", "https://m.blog.naver.com/*"], "js": ["content.js"], "run_at": "document_idle", "all_frames": true},
+    {"matches": ["http://localhost/*", "http://127.0.0.1/*"], "js": ["bridge.js"], "run_at": "document_start"}
+  ],
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'self'"}
+}

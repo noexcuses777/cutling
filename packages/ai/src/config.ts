@@ -1,0 +1,6 @@
+export interface HCXConfig { apiKey:string; baseUrl:string; lightModel:string; reasoningModel:string; embeddingModel:string; chatEndpoint:string; embeddingEndpoint:string; requestTimeoutMs:number; maxConcurrency:number; maxRetries:number; cacheTtlMs:number; }
+const bounded = (value:string|undefined,fallback:number,min:number,max:number) => { const parsed=Number(value); return Number.isFinite(parsed)&&parsed>=min?Math.min(max,parsed):fallback; };
+export function readHCXConfig(env: Record<string,string|undefined> = process.env): HCXConfig {
+  return {apiKey:env.HCX_API_KEY?.trim()||'',baseUrl:env.HCX_BASE_URL?.trim()||'https://clovastudio.stream.ntruss.com',lightModel:env.HCX_LIGHT_MODEL?.trim()||'',reasoningModel:env.HCX_REASONING_MODEL?.trim()||'',embeddingModel:env.HCX_EMBEDDING_MODEL?.trim()||'',chatEndpoint:env.HCX_CHAT_ENDPOINT?.trim()||'/v3/chat-completions/{model}',embeddingEndpoint:env.HCX_EMBEDDING_ENDPOINT?.trim()||'/v1/api-tools/embedding/v2',requestTimeoutMs:bounded(env.HCX_REQUEST_TIMEOUT_MS,30000,10,120000),maxConcurrency:bounded(env.HCX_MAX_CONCURRENCY,2,1,8),maxRetries:bounded(env.HCX_MAX_RETRIES,1,0,2),cacheTtlMs:300000};
+}
+export function configured(config:HCXConfig):boolean { return !!(config.apiKey&&config.lightModel&&config.reasoningModel&&config.embeddingModel); }

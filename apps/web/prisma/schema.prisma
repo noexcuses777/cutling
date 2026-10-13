@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "sqlite"
+  url = env("DATABASE_URL")
+}
+model Workspace {
+  id String @id
+  createdAt DateTime @default(now())
+  records Entity[]
+  credentials Credential[]
+}
+// JSON records carry the shared domain schemas; ownership is enforced in the relational envelope.
+model Entity {
+  id String @id
+  kind String
+  ownerId String
+  projectId String?
+  parentId String?
+  data String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  owner Workspace @relation(fields:[ownerId],references:[id],onDelete:Cascade)
+  @@index([ownerId,kind,projectId])
+  @@index([ownerId,parentId])
+}
+model Credential {
+  hash String @id
+  kind String
+  ownerId String
+  origin String?
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  owner Workspace @relation(fields:[ownerId],references:[id],onDelete:Cascade)
+  @@index([ownerId,kind])
+}
