@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      AI_MODE: rules
+      HCX_API_KEY: ''
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - uses: pnpm/action-setup@v6
+      - name: Check tracked files for credentials and private data
+        run: node scripts/check-secrets.mjs
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Prepare safe local environment
+        run: cp apps/web/.env.example apps/web/.env.local
+      - name: Generate database client
+        run: pnpm db:generate
+      - name: Unit and service tests
+        run: pnpm test
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Lint
+        run: pnpm lint
+      - name: Build web and extension
+        run: pnpm build
